@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - name: Baixar codigo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Instalar .NET 8
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: '8.0.x'
 
@@ -25,7 +25,7 @@ jobs:
         run: dotnet restore CombatScore.UI/CombatScore.UI.csproj
 
       - name: Publicar aplicacao
-        run: dotnet publish CombatScore.UI/CombatScore.UI.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=false -o publish
+        run: dotnet publish CombatScore.UI/CombatScore.UI.csproj -c Release -r win-x64 --self-contained true -o publish
 
       - name: Instalar Inno Setup
         run: choco install innosetup -y
