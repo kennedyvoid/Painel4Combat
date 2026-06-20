@@ -1,2 +1,0 @@
-Cole aqui os arquivos gerados pelo Publish do Visual Studio.
-O executável esperado é CombatScore.UI.exe

@@ -1,0 +1,40 @@
+name: Build 4Combat Installer
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - principal
+  workflow_dispatch:
+
+jobs:
+  build-installer:
+    runs-on: windows-latest
+
+    steps:
+      - name: Baixar codigo
+        uses: actions/checkout@v4
+
+      - name: Instalar .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restaurar pacotes
+        run: dotnet restore CombatScore.UI/CombatScore.UI.csproj
+
+      - name: Publicar aplicacao
+        run: dotnet publish CombatScore.UI/CombatScore.UI.csproj -c Release -r win-x64 --self-contained true -p:PublishSingleFile=false -o publish
+
+      - name: Instalar Inno Setup
+        run: choco install innosetup -y
+
+      - name: Gerar instalador
+        run: iscc 4CombatSetup.iss
+
+      - name: Enviar instalador para download
+        uses: actions/upload-artifact@v4
+        with:
+          name: 4CombatSetup
+          path: installer-output/4CombatSetup.exe
