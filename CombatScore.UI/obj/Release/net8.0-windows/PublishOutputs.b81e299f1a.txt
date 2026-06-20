@@ -1,5 +1,0 @@
-C:\Users\kenne\OneDrive\Área de Trabalho\Painel final\CombatScore.UI.exe
-C:\Users\kenne\OneDrive\Área de Trabalho\Painel final\CombatScore.UI.dll
-C:\Users\kenne\OneDrive\Área de Trabalho\Painel final\CombatScore.UI.deps.json
-C:\Users\kenne\OneDrive\Área de Trabalho\Painel final\CombatScore.UI.runtimeconfig.json
-C:\Users\kenne\OneDrive\Área de Trabalho\Painel final\CombatScore.UI.pdb
